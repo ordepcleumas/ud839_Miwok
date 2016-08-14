@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    //teste
+
     public void openFamilyList(View view) {
         //Cria um Intent para a FamilyActivity
         Intent i = new Intent(this, FamilyActivity.class);
