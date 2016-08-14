@@ -15,10 +15,9 @@
  */
 package com.example.android.miwok;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,33 +27,17 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
-    }
+        /**
+         * 2. Create a new object instance of the event listener (using the constructor)
+         */
+        NumbersClickListener clickListener = new NumbersClickListener();
 
-    public void openNumbersList(View view) {
-        //Cria um Intent para a NumbersActivity
-        Intent i = new Intent(this, NumbersActivity.class);
-        //Inicia a activity
-        startActivity(i);
-    }
-
-    public void openFamilyList(View view) {
-        //Cria um Intent para a FamilyActivity
-        Intent i = new Intent(this, FamilyActivity.class);
-        //Inicia a activity
-        startActivity(i);
-    }
-
-    public void openColorsList(View view) {
-        //Cria um Intent para a ColorsActivity
-        Intent i = new Intent(this, ColorsActivity.class);
-        //Inicia a activity
-        startActivity(i);
-    }
-
-    public void openPhrasesList(View view) {
-        //Cria um Intent para a PhrasesActivity
-        Intent i = new Intent(this, PhrasesActivity.class);
-        //Inicia a activity
-        startActivity(i);
+        //Find the View that shows the numbers category
+        TextView numbersTextView = (TextView) findViewById(R.id.numbers);
+        /**
+         * 3. Attach the listener to the view
+         */
+        //Set a clicklistener on that View
+        numbersTextView.setOnClickListener(clickListener);
     }
 }
