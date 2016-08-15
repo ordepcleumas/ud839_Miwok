@@ -34,17 +34,55 @@ public class MainActivity extends AppCompatActivity {
         TextView numbersTextView = (TextView) findViewById(R.id.numbers);
 
         //Set a clicklistener on that View
-        //This turn to
-        //numbersTextView.setOnClickListener(new NumbersClickListener());
-        //This
         numbersTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(view.getContext(), "Open the list of numbers", Toast.LENGTH_SHORT).show();
                 //Create a new Intent to open the {@link NumbersActivity}
                 Intent numbersIntent = new Intent(MainActivity.this, NumbersActivity.class);
                 //Start the new activity
                 startActivity(numbersIntent);
+            }
+        });
+
+        //Find the View that shows the family category
+        TextView familyTextView = (TextView) findViewById(R.id.family);
+
+        //Set a clicklistener on that View
+        familyTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Create a new Intent to open the {@link NumbersActivity}
+                Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
+                //Start the new activity
+                startActivity(familyIntent);
+            }
+        });
+
+        //Find the View that shows the numbers category
+        TextView colorsTextView = (TextView) findViewById(R.id.colors);
+
+        //Set a clicklistener on that View
+        colorsTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Create a new Intent to open the {@link NumbersActivity}
+                Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
+                //Start the new activity
+                startActivity(colorsIntent);
+            }
+        });
+
+        //Find the View that shows the numbers category
+        TextView phrasesTextView = (TextView) findViewById(R.id.phrases);
+
+        //Set a clicklistener on that View
+        phrasesTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Create a new Intent to open the {@link NumbersActivity}
+                Intent phrasesIntent = new Intent(MainActivity.this, PhrasesActivity.class);
+                //Start the new activity
+                startActivity(phrasesIntent);
             }
         });
     }
