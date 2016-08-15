@@ -29,21 +29,11 @@ public class NumbersActivity extends AppCompatActivity {
         LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
 
         int index = 0;
-
-        TextView wordView = new TextView(this);//this is NumberActivity context
-        wordView.setText(words.get(index));
-        rootView.addView(wordView);
-
-        index = index + 1;
-
-        TextView wordView2 = new TextView(this);//this is NumberActivity context
-        wordView2.setText(words.get(index));
-        rootView.addView(wordView2);
-        index = index + 1;
-
-        TextView wordView3 = new TextView(this);//this is NumberActivity context
-        wordView3.setText(words.get(index));
-        rootView.addView(wordView3);
-
+        while (index < words.size()) {
+            TextView wordView = new TextView(this);//this is NumberActivity context
+            wordView.setText(words.get(index));
+            rootView.addView(wordView);
+            index++;
+        }
     }
 }
