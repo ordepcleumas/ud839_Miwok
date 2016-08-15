@@ -51,21 +51,21 @@ public class MainActivity extends AppCompatActivity {
         familyTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Create a new Intent to open the {@link NumbersActivity}
+                //Create a new Intent to open the {@link FamilyActivity}
                 Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
                 //Start the new activity
                 startActivity(familyIntent);
             }
         });
 
-        //Find the View that shows the numbers category
+        //Find the View that shows the colors category
         TextView colorsTextView = (TextView) findViewById(R.id.colors);
 
         //Set a clicklistener on that View
         colorsTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Create a new Intent to open the {@link NumbersActivity}
+                //Create a new Intent to open the {@link ColorsActivity}
                 Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
                 //Start the new activity
                 startActivity(colorsIntent);
