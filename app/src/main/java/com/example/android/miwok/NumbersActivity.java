@@ -2,7 +2,10 @@ package com.example.android.miwok;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
 
@@ -11,29 +14,36 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
 
-        String[] words = new String[10];
-        words[0] = "One";
-        words[1] = "Two";
-        words[2] = "Three";
-        words[3] = "Four";
-        words[4] = "Five";
-        words[5] = "Six";
-        words[6] = "Seven";
-        words[7] = "Eight";
-        words[8] = "Nine";
-        words[9] = "Ten";
+        ArrayList<String> words = new ArrayList<String>();
+        words.add("One");
+        words.add("Two");
+        words.add("Three");
+        words.add("Four");
+        words.add("Five");
+        words.add("Six");
+        words.add("Seven");
+        words.add("Eight");
+        words.add("Nine");
+        words.add("Ten");
 
-        // Verify the contents of the array by printing out each array element to the logs
-        Log.v("NumbersActivity", "Word at index 0: " + words[0]);
-        Log.v("NumbersActivity", "Word at index 1: " + words[1]);
-        Log.v("NumbersActivity", "Word at index 2: " + words[2]);
-        Log.v("NumbersActivity", "Word at index 3: " + words[3]);
-        Log.v("NumbersActivity", "Word at index 4: " + words[4]);
-        Log.v("NumbersActivity", "Word at index 5: " + words[5]);
-        Log.v("NumbersActivity", "Word at index 6: " + words[6]);
-        Log.v("NumbersActivity", "Word at index 7: " + words[7]);
-        Log.v("NumbersActivity", "Word at index 8: " + words[8]);
-        Log.v("NumbersActivity", "Word at index 9: " + words[9]);
+        LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
+
+        int index = 0;
+
+        TextView wordView = new TextView(this);//this is NumberActivity context
+        wordView.setText(words.get(index));
+        rootView.addView(wordView);
+
+        index = index + 1;
+
+        TextView wordView2 = new TextView(this);//this is NumberActivity context
+        wordView2.setText(words.get(index));
+        rootView.addView(wordView2);
+        index = index + 1;
+
+        TextView wordView3 = new TextView(this);//this is NumberActivity context
+        wordView3.setText(words.get(index));
+        rootView.addView(wordView3);
 
     }
 }
