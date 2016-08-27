@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -67,10 +68,22 @@ public class WordAdapter extends ArrayAdapter<Word> {
         miwokTextView.setText(currentWord.getmMiwokTranslation());
 
         // Find the ImageView in the list_item.xml layout with the ID list_item_icon
-        //ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_icon);
-        // Get the image resource ID from the current Word object and
-        // set the image to iconView
-        //iconView.setImageResource(currentWord.getImageResourceId());
+        ImageView imageView = (ImageView) listItemView.findViewById(R.id.list_item_icon);
+
+        if (currentWord.hasImage()) {
+            imageView.setImageResource(currentWord.getmImageResourceId());
+            imageView.setVisibility(View.VISIBLE);
+        } else {
+            imageView.setVisibility(View.GONE);
+        }
+
+        //if (currentWord.getmImagemState() == View.VISIBLE) {
+        //    // Get the image resource ID from the current Word object and
+        //    // set the image to iconView
+        //    iconView.setImageResource(currentWord.getmImageResourceId());
+        //}
+
+        //iconView.setVisibility(currentWord.getmImagemState());
 
         // Return the whole list item layout (containing 2 TextViews and an ImageView)
         // so that it can be shown in the ListView

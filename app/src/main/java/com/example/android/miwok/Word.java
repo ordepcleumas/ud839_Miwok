@@ -5,19 +5,21 @@ package com.example.android.miwok;
  * It contains a default translation and a Miwok translation for that word.
  */
 public class Word {
+    private static final int NO_IMAGE_PROVIDED = -1;
     /**
      * Default translation for the word
      */
     private String mDefaultTranslation;
-    /**
-     * Miwok translation for the word
-     */
+    /** Miwok translation for the word */
     private String mMiwokTranslation;
-
     /**
      * Image resource id of the word
      */
-    private int mImageResourceId;
+    private int mImageResourceId = NO_IMAGE_PROVIDED;
+
+    //A minha tentativa
+    //private int mImagemState;
+
 
     /**
      * Create a new Word object.
@@ -29,6 +31,7 @@ public class Word {
     public Word(String defaultTranslation, String miwokTranslation) {
         this.mDefaultTranslation = defaultTranslation;
         this.mMiwokTranslation = miwokTranslation;
+        //this.mImagemState = View.GONE;
     }
 
     /**
@@ -43,6 +46,7 @@ public class Word {
         this.mDefaultTranslation = defaultTranslation;
         this.mMiwokTranslation = miwokTranslation;
         this.mImageResourceId = imageResourceId;
+        //this.mImagemState = View.VISIBLE;
     }
 
     /**
@@ -66,4 +70,15 @@ public class Word {
     public int getmImageResourceId() {
         return mImageResourceId;
     }
+
+    /**
+     * Returns whether or not there is an image for this word
+     */
+    public boolean hasImage() {
+        return mImageResourceId != NO_IMAGE_PROVIDED;
+    }
+
+    //public int getmImagemState() {
+    //    return mImagemState;
+    //}
 }
