@@ -1,17 +1,24 @@
 package com.example.android.miwok;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 public class FamilyActivity extends AppCompatActivity {
 
+    private MediaPlayer mMediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
+
+        mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.number_one);
 
         ArrayList<Word> words = new ArrayList<Word>();
 
@@ -44,5 +51,17 @@ public class FamilyActivity extends AppCompatActivity {
         // Do this by calling the setAdapter method on the {@link ListView} object and pass in
         // 1 argument, which is the {@link ArrayAdapter} with the variable name itemsAdapter.
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //Toast toast = Toast.makeText(getApplicationContext(), "Hello toast!", Toast.LENGTH_SHORT);
+                //toast.show();
+                mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.number_one);
+                if (!mMediaPlayer.isPlaying()) {
+                    mMediaPlayer.start();
+                }
+            }
+        });
     }
 }
