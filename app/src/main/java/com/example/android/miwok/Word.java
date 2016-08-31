@@ -20,6 +20,11 @@ public class Word {
     //A minha tentativa
     //private int mImagemState;
 
+    /**
+     * Audio resource id of the word
+     */
+    private int mAudioResourceId;
+
 
     /**
      * Create a new Word object.
@@ -28,10 +33,11 @@ public class Word {
      *                           (such as English)
      * @param miwokTranslation   is the word in the Miwok language
      */
-    public Word(String defaultTranslation, String miwokTranslation) {
+    public Word(String defaultTranslation, String miwokTranslation, int audioResourceId) {
         this.mDefaultTranslation = defaultTranslation;
         this.mMiwokTranslation = miwokTranslation;
         //this.mImagemState = View.GONE;
+        this.mAudioResourceId = audioResourceId;
     }
 
     /**
@@ -42,10 +48,12 @@ public class Word {
      * @param miwokTranslation   is the word in the Miwok language
      * @param imageResourceId    is the resource id of the image
      */
-    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId) {
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId, int audioResourceId) {
         this.mDefaultTranslation = defaultTranslation;
         this.mMiwokTranslation = miwokTranslation;
         this.mImageResourceId = imageResourceId;
+        this.mAudioResourceId = audioResourceId;
+
         //this.mImagemState = View.VISIBLE;
     }
 
@@ -81,4 +89,11 @@ public class Word {
     //public int getmImagemState() {
     //    return mImagemState;
     //}
+
+    /**
+     * Get the id of the audio file
+     */
+    public int getmAudioResourceId() {
+        return mAudioResourceId;
+    }
 }
