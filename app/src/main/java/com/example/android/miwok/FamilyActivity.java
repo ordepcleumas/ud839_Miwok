@@ -18,8 +18,6 @@ public class FamilyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-        mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.number_one);
-
         final ArrayList<Word> words = new ArrayList<Word>();
 
         words.add(new Word("father", "әpә", R.drawable.family_father, R.raw.family_father));
@@ -57,10 +55,11 @@ public class FamilyActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 //Toast toast = Toast.makeText(getApplicationContext(), "Hello toast!", Toast.LENGTH_SHORT);
                 //toast.show();
-                mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.number_one);
-                if (!mMediaPlayer.isPlaying()) {
+
+                mMediaPlayer = MediaPlayer.create(getApplicationContext(), words.get(i).getmAudioResourceId());
+                //if (!mMediaPlayer.isPlaying()) {
                     mMediaPlayer.start();
-                }
+                //}
             }
         });
     }
