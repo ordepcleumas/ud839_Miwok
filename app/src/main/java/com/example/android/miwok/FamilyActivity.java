@@ -22,7 +22,8 @@ public class FamilyActivity extends AppCompatActivity {
      * Handles audio focus when playing a sound file
      */
     private AudioManager mAudioManager;
-    AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener =
+
+    private AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener =
             new AudioManager.OnAudioFocusChangeListener() {
                 public void onAudioFocusChange(int focusChange) {
                     if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT ||

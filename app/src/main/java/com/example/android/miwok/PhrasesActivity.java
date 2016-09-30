@@ -22,7 +22,11 @@ public class PhrasesActivity extends AppCompatActivity {
      * Handles audio focus when playing a sound file
      */
     private AudioManager mAudioManager;
-    AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener =
+    /**
+     * This listener gets triggered whenever the audio focus changes
+     * (i.e., we gain or lose audio focus because of another app or device).
+     */
+    private AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener =
             new AudioManager.OnAudioFocusChangeListener() {
                 public void onAudioFocusChange(int focusChange) {
                     if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT ||
@@ -52,7 +56,7 @@ public class PhrasesActivity extends AppCompatActivity {
      */
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
-        public void onCompletion(MediaPlayer mp) {
+        public void onCompletion(MediaPlayer mediaPlayer) {
             // Now that the sound file has finished playing, release the media player resources.
             releaseMediaPlayer();
         }
@@ -110,6 +114,7 @@ public class PhrasesActivity extends AppCompatActivity {
                 // Release the media player if it currently exists because we are about to
                 // play a different sound file
                 releaseMediaPlayer();
+
 
                 // Request audio focus for playback
                 int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
